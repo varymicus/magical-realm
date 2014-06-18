@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="style.css">
+<title>Interactive Magical Realm CYOA</title>
+</head>
+
+<body>
+<script src="script.js"></script>
+
+<p id="counter">100</p>
+<h1 onclick="slidePanel('intro')">"How would you like a Magical Realm?"</h1>
+<div id="intro" class="infocus">
+<p class="narration">
+It was just an ordinary day for you, a day like any other, until you heard those words. At first whispering across your ear, strangely inflected and sending an odd shiver down your spine, echoing in your mind.
+</p>
+<p class="narration">
+You look around, trying to figure out where the words came from, only to see the world around begin to rip and tear itself away; as if your reality were nothing more than simple paper. Behind the tattered remains peaked out stars, nebulae, and the universe, the cosmos themselves. As the last tatter faded out of view, something else appeared - directly before you but seeming vast and powerful beyond all possible comprehension.
+</p>
+<p class="narration">
+Not another word is said; not a word is needed. It is all too obvious the difference between you and it, between a mortal and a being that may as well be a god. It moves one hand slowly, directing your attention downward, toward a translucent bubble hanging in the void. Within it you can see a small parcel of land, perhaps the size of a small city. The creature points a hand toward you, extending its index finger.
+</p>
+<p class="god">
+"It shall be yours."
+</p>
+<p class="narration">
+You raise up your hands, cupping them in front of you and barely realizing that you've done it. You're not certain how you know that's what it wants of you.
+<br>
+Within your cupped hands, <b>100 colorful baubles</b> appear.
+</p>
+<p class="god">
+"Choose wisely."
+</p>
+<br>
+</div>
+
+<hr>
+<h1 onclick="slidePanel('demiplanes')">Demiplanes</h1>
+<div id="demiplanes" class="infocus">
+<p class="narration">
+The plane below you is small at the moment, about 200km<sup>2</sup> in total.
+<br>You get the feeling you could change that, however... for a price.
+</p>
+<table id="area">
+	<tr>
+		<td class="name_col">Area Increase 1</td>
+		<td class="desc_col">1000 km<sup>2</sup> - about the size of Los Angeles.</td>
+		<td class="cost_col">1</td>
+		<td class="buy_col"><button type="button" class="buybutton" onClick="buy('area',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button" onClick="refund('area',0)">Refund</button></td>
+	</tr>
+	<tr>
+		<td class="name_col">Area Increase 2</td>
+		<td class="desc_col">25,000 km<sup>2</sup> - about the size of Belgium.</td>
+		<td class="cost_col">2</td>
+		<td class="buy_col"><button type="button" onClick="buy('area',1)">Purchase</button></td>
+		<td class="refund_col"><button type="button" onClick="refund('area',1)">Refund</button></td>
+	</tr>
+	<tr>
+		<td class="name_col">Area Increase 3</td>
+		<td class="desc_col">600,000 km<sup>2</sup> - about the size of France.</td>
+		<td class="cost_col">3</td>
+		<td class="buy_col"><button type="button" onClick="buy('area',2)">Purchase</button></td>
+		<td class="refund_col"><button type="button" onClick="refund('area',2)">Refund</button></td>
+	</tr>
+	<tr>
+		<td class="name_col">Area Increase 4</td>
+		<td class="desc_col">10,000,000 km<sup>2</sup> - about the size of Australia.</td>
+		<td class="cost_col">4</td>
+		<td class="buy_col"><button type="button" onClick="buy('area',3)">Purchase</button></td>
+		<td class="refund_col"><button type="button" onClick="refund('area',3)">Refund</button></td>
+	</tr>
+	<tr>
+		<td class="name_col">Area Increase 5</td>
+		<td class="desc_col">150,000,000 km<sup>2</sup> - about the size of Mars.</td>
+		<td class="cost_col">5</td>
+		<td class="buy_col"><button type="button" onClick="buy('area',4)">Purchase</button></td>
+		<td class="refund_col"><button type="button" onClick="refund('area',4)">Refund</button></td>
+	</tr>
+	<tr>
+		<td class="name_col">Area Increase 6</td>
+		<td class="desc_col">3,000,000,000 km<sup>2</sup> - about the 5x the size of Earth.</td>
+		<td class="cost_col">6</td>
+		<td class="buy_col"><button type="button" onClick="buy('area',5)">Purchase</button></td>
+		<td class="refund_col"><button type="button" onClick="refund('area',5)">Refund</button></td>
+	</tr>
+	<tr>
+		<td class="name_col">Area Increase 7</td>
+		<td class="desc_col">60,000,000,000 km<sup>2</sup> - about the size of Jupiter.</td>
+		<td class="cost_col">7</td>
+		<td class="buy_col"><button type="button" onClick="buy('area',6)">Purchase</button></td>
+		<td class="refund_col"><button type="button" onClick="refund('area',6)">Refund</button></td>
+	</tr>
+</table>
+<hr class="no_hr">
+<br>
+</div>
+
+<hr>
+<h1 onclick="slidePanel('planar')">Planar Features</h1>
+<div id="planar" class="infocus">
+<p class="narration">
+For the moment, regardless of its size, this land is literally in the middle of nowhere, as are you.
+</p>
+<table id="insertion">
+	<tr>
+		<td class="name_col">Insertion</td>
+		<td class="desc_col">Your demiplane is inserted into the world, at the place of your choosing.
+		<br>The world is stretched in size to accommodate it, with no negative effects as a result.
+		<br>If your demiplane is large enough, it may be existentialized as a new planet positioned anywhere in the solar system or universe.</td>
+		<td class="cost_col">1</td>
+		<td class="buy_col"><button type="button" onClick="buy('insertion',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('insertion',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="gateways">
+	<tr>
+		<td class="name_col">Gateways 1</td>
+		<td class="desc_col">Your demiplane possesses at least one static gateway which connects it to the world.
+		<br>Maximum number of gateways = (Area+1)<sup>2</sup>: 1, 4, 9, 16, 25, 36, 49, 64.</td>
+		<td class="cost_col">1</td>
+		<td class="buy_col"><button type="button" onClick="buy('gateways',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('gateways',0)">Refund</button></td>
+	</tr>
+	<tr>
+		<td class="name_col">Gateways 2</td>
+		<td class="desc_col">Gateways may also be used to provide static waygates within the demiplane itself.
+		<br>Maximum number of gateways = (Area+1)<sup>3</sup>: 1, 8, 27, 64, 125, 256, 343, 512.</td>
+		<td class="cost_col">2</td>
+		<td class="buy_col"><button type="button" onClick="buy('gateways',1)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('gateways',1)">Refund</button></td>
+	</tr>
+</table>
+<table id="portals">
+	<tr>
+		<td class="name_col">Portals</td>
+		<td class="desc_col">Temporary portals connect the world and your demiplane. You will be provided with a method to control them.</td>
+		<td class="cost_col">3</td>
+		<td class="buy_col"><button type="button" onClick="buy('portals',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('portals',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="division">
+	<tr>
+		<td class="name_col">Division</td>
+		<td class="desc_col">You may have multiple independent demiplanes. All benefits need only be purchased once.
+		<br>Cumulative totals of size, population, etc. still apply.</td>
+		<td class="cost_col">2</td>
+		<td class="buy_col"><button type="button" onClick="buy('division',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('division',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="protection">
+	<tr>
+		<td class="name_col">Protection</td>
+		<td class="desc_col">Your demiplane is also magically protected from the outside world. No man-made or natural disasters will affect it.</td>
+		<td class="cost_col">3</td>
+		<td class="buy_col"><button type="button" onClick="buy('protection',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('protection',0)">Refund</button></td>
+	</tr>
+</table>
+<hr class="no_hr">
+<br>
+</div>
+
+<hr>
+<h1 onclick="slidePanel('population')">Population</h1>
+<div id="population" class="infocus">
+<p class="narration">
+Looking closer you can see people... or perhaps just the idea of people...
+<br>There are 10,000 souls currently residing in the plane below.
+</p>
+<table id="pop_inc">
+	<tr>
+		<td class="name_col">Population Increase 1</td>
+		<td class="desc_col">50,000 - about the population of the Faroe Islands.</td>
+		<td class="cost_col">1</td>
+		<td class="buy_col"><button type="button" onClick="buy('pop_inc',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('pop_inc',0)">Refund</button></td>
+	</tr>
+	<tr>
+		<td class="name_col">Population Increase 2</td>
+		<td class="desc_col">250,000 - about the population of Orlando, Florida.</td>
+		<td class="cost_col">2</td>
+		<td class="buy_col"><button type="button" onClick="buy('pop_inc',1)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('pop_inc',1)">Refund</button></td>
+	</tr>
+	<tr>
+		<td class="name_col">Population Increase 3</td>
+		<td class="desc_col">1,000,000 - about the population of San Jose, California.</td>
+		<td class="cost_col">3</td>
+		<td class="buy_col"><button type="button" onClick="buy('pop_inc',2)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('pop_inc',2)">Refund</button></td>
+	</tr>
+	<tr>
+		<td class="name_col">Population Increase 4</td>
+		<td class="desc_col">15,000,000 - about the population of Cambodia.</td>
+		<td class="cost_col">4</td>
+		<td class="buy_col"><button type="button" onClick="buy('pop_inc',3)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('pop_inc',3)">Refund</button></td>
+	</tr>
+	<tr>
+		<td class="name_col">Population Increase 5</td>
+		<td class="desc_col">50,000,000 - about the population of South Korea.</td>
+		<td class="cost_col">5</td>
+		<td class="buy_col"><button type="button" onClick="buy('pop_inc',4)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('pop_inc',4)">Refund</button></td>
+	</tr>
+	<tr>
+		<td class="name_col">Population Increase 6</td>
+		<td class="desc_col">300,000,000 - about the population of the United States.</td>
+		<td class="cost_col">6</td>
+		<td class="buy_col"><button type="button" onClick="buy('pop_inc',5)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('pop_inc',5)">Refund</button></td>
+	</tr>
+	<tr>
+		<td class="name_col">Population Increase 7</td>
+		<td class="desc_col">2,000,000,000 - about the population of Africa and the Americas combined.</td>
+		<td class="cost_col">7</td>
+		<td class="buy_col"><button type="button" onClick="buy('pop_inc',6)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('pop_inc',6)">Refund</button></td>
+	</tr>
+	<tr>
+		<td class="name_col">Population Increase 8</td>
+		<td class="desc_col">40,000,000,000 - about 5.5x the population of the world.</td>
+		<td class="cost_col">8</td>
+		<td class="buy_col"><button type="button" onClick="buy('pop_inc',7)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('pop_inc',7)">Refund</button></td>
+	</tr>
+</table>
+<hr class="no_hr">
+<br>
+</div>
+
+<hr>
+<h1 onclick="slidePanel('inhabitants')">Inhabitants</h1>
+<div id="inhabitants" class="infocus">
+<p class="narration">
+Of course, they're not really people yet; perhaps you could decide what sort of people they become.
+<br>You reach toward the baubles...
+</p>
+<table id="pretty_pop">
+	<tr>
+		<td class="name_col">Pretty Population</td>
+		<td class="desc_col">Your people are more attractive than most; everyone is at least good looking. Many in your population appear to be super models by human standards.</td>
+		<td class="cost_col">1</td>
+		<td class="buy_col"><button type="button" onClick="buy('pretty_pop',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('pretty_pop',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="attitude">
+	<tr>
+		<td class="name_col">Attitude Adjustment</td>
+		<td class="desc_col">Adjust the personalities of your population: make them friendly, aggressive, sexy, or anything else.</td>
+		<td class="cost_col">1</td>
+		<td class="buy_col"><button type="button" onClick="buy('attitude',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('attitude',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="customs">
+	<tr>
+		<td class="name_col">Culture & Customs</td>
+		<td class="desc_col">Define the cultural norms, customs, and traditions of your populace.</td>
+		<td class="cost_col">1</td>
+		<td class="buy_col"><button type="button" onClick="buy('customs',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('customs',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="demographics">
+	<tr>
+		<td class="name_col">Population Demographics</td>
+		<td class="desc_col">You may customize your population in broad terms; male/female ratio, ethnic make-up, etc.
+		<br>Your population will be maintained at your chosen demographics for as long as you wish.</td>
+		<td class="cost_col">2</td>
+		<td class="buy_col"><button type="button" onClick="buy('demographics',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('demographics',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="extrahuman">
+	<tr>
+		<td class="name_col">Extrahuman Population</td>
+		<td class="desc_col">Some or all of your people appear to be something other than human.
+		<br>Elves, dwarves, furries, monsters, anything biologically possible and in any combination you'd like.
+		<br>With "Metahuman Population", your population may take biologically impossible forms.</td>
+		<td class="cost_col">2</td>
+		<td class="buy_col"><button type="button" onClick="buy('extrahuman',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('extrahuman',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="metahuman">
+	<tr>
+		<td class="name_col">Metahuman Population</td>
+		<td class="desc_col">Some or all of your people possess natural magical abilities or traits. Nothing world-threatening, but nonetheless very impressive.</td>
+		<td class="cost_col">3</td>
+		<td class="buy_col"><button type="button" onClick="buy('metahuman',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('metahuman',0)">Refund</button></td>
+	</tr>
+</table>
+<hr class="no_hr">
+<br>
+</div>
+
+<hr>
+<h1 onclick="slidePanel('technology')">Technology</h1>
+<div id="technology" class="infocus">
+<p class="narration">
+An image flashes across your mind's eye. You see the people below living in homes and scattered villages.
+<br>It looks medieval, like a scene out of the 14th century. But of course, there are the baubles...
+</p>
+<table id="tech">
+	<tr>
+		<td class="name_col">Technology Upgrade 1</td>
+		<td class="desc_col">A 19th century standard of living with locomotives, steam engines, and firearms.</td>
+		<td class="cost_col">1</td>
+		<td class="buy_col"><button type="button" onClick="buy('tech',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('tech',0)">Refund</button></td>
+	</tr>
+	<tr>
+		<td class="name_col">Technology Upgrade 2</td>
+		<td class="desc_col">An early 20th century standard of living with automobiles, combustion engines, and more.</td>
+		<td class="cost_col">2</td>
+		<td class="buy_col"><button type="button" onClick="buy('tech',1)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('tech',1)">Refund</button></td>
+	</tr>
+	<tr>
+		<td class="name_col">Technology Upgrade 3</td>
+		<td class="desc_col">A mid 20th century standard of living with electricity, television, and commercial airplanes.</td>
+		<td class="cost_col">3</td>
+		<td class="buy_col"><button type="button" onClick="buy('tech',2)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('tech',2)">Refund</button></td>
+	</tr>
+	<tr>
+		<td class="name_col">Technology Upgrade 4</td>
+		<td class="desc_col">A modern standard of living with computers, internet, and the joys of the digital age.</td>
+		<td class="cost_col">4</td>
+		<td class="buy_col"><button type="button" onClick="buy('tech',3)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('tech',3)">Refund</button></td>
+	</tr>
+	<tr>
+		<td class="name_col">Technology Upgrade 5</td>
+		<td class="desc_col">You are now ahead of the curve, with a standard of living and technology 25 years ahead of the rest of the world.</td>
+		<td class="cost_col">5</td>
+		<td class="buy_col"><button type="button" onClick="buy('tech',4)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('tech',4)">Refund</button></td>
+	</tr>
+	<tr>
+		<td class="name_col">Technology Upgrade 6</td>
+		<td class="desc_col">You are now far ahead of the curve, with a standard of living and technology 50 years ahead of the rest of the world.</td>
+		<td class="cost_col">6</td>
+		<td class="buy_col"><button type="button" onClick="buy('tech',5)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('tech',5)">Refund</button></td>
+	</tr>
+</table>
+<hr class="no_hr">
+<br>
+</div>
+
+<hr>
+<h1 onclick="slidePanel('infrastructure')">Infrastructure</h1>
+<div id="infrastructure" class="infocus">
+<p class="narration">
+Perhaps if you can alter the technology at their disposal, you can alter a little more...
+</p>
+<table id="metropolis">
+	<tr>
+		<td class="name_col">Metropolis</td>
+		<td class="desc_col">In addition to towns and villages, you can now start out with proper cities and a bustling metropolis, assuming you have enough space and people for them.</td>
+		<td class="cost_col">2</td>
+		<td class="buy_col"><button type="button" onClick="buy('metropolis',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('metropolis',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="aesthetics">
+	<tr>
+		<td class="name_col">Aesthetics</td>
+		<td class="desc_col">Your towns, cities, and metropolis are all artfully designed and pleasing to the eye and soul.
+		<br>It's easy and intuitive to get where you're going and enjoyable to look at.</td>
+		<td class="cost_col">2</td>
+		<td class="buy_col"><button type="button" onClick="buy('aesthetics',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('aesthetics',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="sanitation">
+	<tr>
+		<td class="name_col">Sanitation</td>
+		<td class="desc_col">Cities and towns are always clean and well-maintained.
+		<br>All trash is recycled, no smog is allowed anywhere it might offend, and there is never any shortage of clean water.</td>
+		<td class="cost_col">1</td>
+		<td class="buy_col"><button type="button" onClick="buy('sanitation',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('sanitation',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="secure">
+	<tr>
+		<td class="name_col">Secure</td>
+		<td class="desc_col">Crime may as well not exist. What little of it does is easily stopped by the excellent local law enforcement.</td>
+		<td class="cost_col">1</td>
+		<td class="buy_col"><button type="button" onClick="buy('secure',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('secure',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="healthy">
+	<tr>
+		<td class="name_col">Healthy</td>
+		<td class="desc_col">Sickness has been nearly eliminated. Your hospitals and doctors are of the highest class and very, very well funded.</td>
+		<td class="cost_col">1</td>
+		<td class="buy_col"><button type="button" onClick="buy('healthy',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('healthy',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="transit">
+	<tr>
+		<td class="name_col">Transit</td>
+		<td class="desc_col">Your transit systems are perfectly maintained and elegantly designed. No traffic, no accidents, and blazingly fast travel times.</td>
+		<td class="cost_col">1</td>
+		<td class="buy_col"><button type="button" onClick="buy('transit',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('transit',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="electricity">
+	<tr>
+		<td class="name_col">Electricity</td>
+		<td class="desc_col">You possess an excess of free and clean electricity, and redundant well-maintained systems to generate and distribute it.</td>
+		<td class="cost_col">1</td>
+		<td class="buy_col"><button type="button" onClick="buy('electricity',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('electricity',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="internet">
+	<tr>
+		<td class="name_col">Internet</td>
+		<td class="desc_col">Free, high speed internet. <b>Everywhere.</b> Get Wi-fi and phone service absolutely anywhere without issue.</td>
+		<td class="cost_col">1</td>
+		<td class="buy_col"><button type="button" onClick="buy('internet',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('internet',0)">Refund</button></td>
+	</tr>
+</table>
+<hr class="no_hr">
+<br>
+</div>
+
+<hr>
+<h1 onclick="slidePanel('society')">Society</h1>
+<div id="society" class="infocus">
+<!-- <img src="society.jpg" alt="Society" class="img_left"> -->
+<p class="narration">
+You can see them, still through your mind's eye. A functioning society - or at least as close to functioning as possible.
+<br>You have a feeling that you could expect a society close to what you might expect on earth; every bit as educated, productive, and wealthy as you've chosen.
+<br>Or perhaps a little more...
+</p>
+<table id="education">
+	<tr>
+		<td class="name_col">Advanced Education</td>
+		<td class="desc_col">Literacy is at nearly 100% and everyone is very, very well educated by the standards of the technology around them.
+		<br>Public education is excellent; don't expect to meet many idiots.</td>
+		<td class="cost_col">1</td>
+		<td class="buy_col"><button type="button" onClick="buy('education',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('education',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="libraries">
+	<tr>
+		<td class="name_col">Libraries</td>
+		<!--repetition of experts-->
+		<td class="desc_col">The public library system is excellent in quality, well-funded, and staffed with expert librarians.
+		<br>The libraries are common, stuffed with books and material on every subject, and staffed by well-educated experts.</td>
+		<td class="cost_col">1</td>
+		<td class="buy_col"><button type="button" onClick="buy('libraries',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('libraries',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="university">
+	<tr>
+		<td class="name_col">University</td>
+		<!--Nobel prizes?-->
+		<td class="desc_col">Prestigious, to say the least. Your society has as many universities as necessary for your populace, all of which are of the absolute highest caliber. Expect some Nobel prizes in the next few years.</td>
+		<td class="cost_col">2</td>
+		<td class="buy_col"><button type="button" onClick="buy('university',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('university',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="wealthy">
+	<tr>
+		<td class="name_col">Wealthy</td>
+		<!--Nobel prizes?-->
+		<td class="desc_col">Your population is wealthy, with high productivity, high job satisfaction, and high incomes. Poverty is nearly non-existent.</td>
+		<td class="cost_col">2</td>
+		<td class="buy_col"><button type="button" onClick="buy('wealthy',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('wealthy',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="industrial">
+	<tr>
+		<td class="name_col">Industrial</td>
+		<td class="desc_col">Your population is extremely productive and inventive.
+		<br>Open trading with the rest of the world will quickly lead to very favorable conditions in trade.</td>
+		<td class="cost_col">3</td>
+		<td class="buy_col"><button type="button" onClick="buy('industrial',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('industrial',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="mercantile">
+	<tr>
+		<td class="name_col">Mercantile</td>
+		<td class="desc_col">While not increasing production of goods, your populace are excellent traders, bankers, and businessmen.</td>
+		<td class="cost_col">2</td>
+		<td class="buy_col"><button type="button" onClick="buy('mercantile',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('mercantile',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="mystical">
+	<tr>
+		<td class="name_col">Mystical</td>
+		<td class="desc_col">The culture of your demiplane is steeped in magic and arcana. You may decide what flavor of magic.
+		<br>There may exist magical academies and colleges specifically for the study and spread of magic.</td>
+		<td class="cost_col">4</td>
+		<td class="buy_col"><button type="button" onClick="buy('mystical',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('mystical',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="technomagic">
+	<tr>
+		<td class="name_col">Technomagic</td>
+		<td class="desc_col">Blendings of magic and technology are common in your realm.
+		<br>Technology may seem significantly more advanced - and significantly stranger as well.</td>
+		<td class="cost_col">3</td>
+		<td class="buy_col"><button type="button" onClick="buy('technomagic',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('technomagic',0)">Refund</button></td>
+	</tr>
+</table>
+<hr class="no_hr">
+<br>
+</div>
+
+<hr>
+<h1 onclick="slidePanel('culture')">Culture</h1>
+<div id="culture" class="infocus">
+<!-- <img src="culture.jpg" alt="Culture" class="img_right"> -->
+<p class="narration">
+You look at the baubles in your hand, and glance at the developing world below you.
+<br>Perhaps you could give the people an inclination of sorts... a cultural affinity to something or other...
+</p>
+<table id="music">
+	<tr>
+		<td class="name_col">Music Affinity</td>
+		<td class="desc_col">Singing, songwriting, and musical instruments are all common and surprisingly excellent. Even the dancing seems better than average.</td>
+		<td class="cost_col">1</td>
+		<td class="buy_col"><button type="button" onClick="buy('music',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('music',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="theater">
+	<tr>
+		<td class="name_col">Theater Affinity</td>
+		<td class="desc_col">Movies, television, radio dramas, and old-fashioned plays; they have it all, and could quickly become a new Hollywood.
+		<br>Surprising quality too, considering what they have to work with.</td>
+		<td class="cost_col">1</td>
+		<td class="buy_col"><button type="button" onClick="buy('theater',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('music',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="sports">
+	<tr>
+		<td class="name_col">Sports Affinity</td>
+		<td class="desc_col">Sports stadiums and fields now dot the land. Some sports you recognize, some you don't.
+		<br>Your populace's teams are athletic enough to compete with some of the best.</td>
+		<td class="cost_col">1</td>
+		<td class="buy_col"><button type="button" onClick="buy('sports',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('sports',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="warfare">
+	<tr>
+		<td class="name_col">Warfare Affinity</td>
+		<td class="desc_col">The art of combat and warfare is celebrated in this land as in no other.
+		<br>By and large your populace enjoys fighting: watching, participating in, even studying. Many, many members of your population are skilled warriors, soldiers, and martial artists.</td>
+		<td class="cost_col">1</td>
+		<td class="buy_col"><button type="button" onClick="buy('warfare',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('warfare',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="gambling">
+	<tr>
+		<td class="name_col">Gambling Affinity</td>
+		<td class="desc_col">New Vegas is a moniker that might come to mind. Casinos and parlors across the land - even some unique new games being played.</td>
+		<td class="cost_col">1</td>
+		<td class="buy_col"><button type="button" onClick="buy('gambling',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('gambling',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="gaming">
+	<tr>
+		<td class="name_col">Gaming Affinity</td>
+		<td class="desc_col">Arcades, video game development, board games, and even dice games and tabletops.
+		<br>Everyone loves them and they're treated well here.</td>
+		<td class="cost_col">1</td>
+		<td class="buy_col"><button type="button" onClick="buy('gaming',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('gaming',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="animation">
+	<tr>
+		<td class="name_col">Animation Affinity</td>
+		<td class="desc_col">The people here have an appreciation for good comics and quality animation.
+		<br>They tend to produce quite a bit of it as well, given the opportunity to do so.</td>
+		<td class="cost_col">1</td>
+		<td class="buy_col"><button type="button" onClick="buy('animation',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('animation',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="art">
+	<tr>
+		<td class="name_col">Art Affinity</td>
+		<td class="desc_col">Museums and galleries. Portraits and landscapes and paintings of all sorts.
+		<br>Even if you're not an art lover there's still obviously something classy about it all.</td>
+		<td class="cost_col">1</td>
+		<td class="buy_col"><button type="button" onClick="buy('art',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('art',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="literature">
+	<tr>
+		<td class="name_col">Literature Affinity</td>
+		<td class="desc_col">Book stores and publishing houses reign supreme now.
+		<br>Poets and novelists walk the streets, ideas for new great works of prose and poem in their heads.</td>
+		<td class="cost_col">1</td>
+		<td class="buy_col"><button type="button" onClick="buy('literature',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('literature',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="intellectual">
+	<tr>
+		<td class="name_col">Intellectual Affinity</td>
+		<td class="desc_col">Philosophy, science, politics and all manner of thinking man's subjects.
+		<br>Everyone has an opinion but there they're actually well thought out; interesting conversation awaits.</td>
+		<td class="cost_col">1</td>
+		<td class="buy_col"><button type="button" onClick="buy('intellectual',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('intellectual',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="hobby">
+	<tr>
+		<td class="name_col">Hobby Affinity</td>
+		<td class="desc_col">Wood working, train sets, model making, knitting, and things of that nature.
+		<br>All of the knick-knacks and simple hobbies you'd ever want.</td>
+		<td class="cost_col">1</td>
+		<td class="buy_col"><button type="button" onClick="buy('hobby',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('hobby',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="alcohol">
+	<tr>
+		<td class="name_col">Alcohol Affinity</td>
+		<td class="desc_col">Your bars and pubs are of the highest class, surpassed only by your brewers and winemakers.
+		<br>Prepare to take the world by drink.</td>
+		<td class="cost_col">1</td>
+		<td class="buy_col"><button type="button" onClick="buy('alcohol',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('alcohol',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="food">
+	<tr>
+		<td class="name_col">Food Affinity</td>
+		<td class="desc_col">Your restaurants are better than the best. You have new forms of comfort food and healthy tasty snacks, even fast food that's actually fast and tastes like food.</td>
+		<td class="cost_col">1</td>
+		<td class="buy_col"><button type="button" onClick="buy('food',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('food',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="sexual">
+	<tr>
+		<td class="name_col">Sexual Affinity</td>
+		<td class="desc_col">Sexually liberated to say the least. This is a society which enjoys and revels in all things sex.
+		<br>Sating your sexual desires here is almost too easy, and the pornography is all of the highest quality.</td>
+		<td class="cost_col">1</td>
+		<td class="buy_col"><button type="button" onClick="buy('sexual',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('sexual',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="religious">
+	<tr>
+		<td class="name_col">Religious Affinity</td>
+		<td class="desc_col">Your population is mostly composed of devout worshippers of their respective religions.
+		<br>Religious temples and works of art are exceptionally common, as well as exceptionally beautiful.</td>
+		<td class="cost_col">1</td>
+		<td class="buy_col"><button type="button" onClick="buy('religious',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('religious',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="festival">
+	<tr>
+		<td class="name_col">Festival Affinity</td>
+		<td class="desc_col">How about a burst of raw culture? Festivals are common, elaborate, and most of all fun.
+		<br>They never get out of hand and there's always a good time to go around.</td>
+		<td class="cost_col">1</td>
+		<td class="buy_col"><button type="button" onClick="buy('festival',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('festival',0)">Refund</button></td>
+	</tr>
+</table>
+<hr class="no_hr">
+<br>
+</div>
+
+<hr>
+<h1 onclick="slidePanel('environment')">Environment</h1>
+<div id="environment" class="infocus">
+<!-- <img src="enviro.jpg" alt="Environment" class="img_left"> -->
+<p class="narration">
+Nothing about the environment below seems particularly special. It simply looks like the world you were torn from.
+<br>With all the same environments and animals and plants that you would expect to see if you were still there...
+<br>Perhaps you could do something special? Or at least adjust the climate a bit...
+</p>
+<table id="landscape">
+	<tr>
+		<td class="name_col">Landscape Adjustment</td>
+		<td class="desc_col">Snow peaked mountains, rolling hills, deserts and rocky steppes, vast canyons and deep rivers, endless savannas, and dense jungles.
+		<br>You may also adjust the climate of your realm however you wish, as well as how it experiences the seasons.
+		<br>You may design the landscape and climate however you'd like.</td>
+		<td class="cost_col">3</td>
+		<td class="buy_col"><button type="button" onClick="buy('landscape',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('landscape',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="fertile">
+	<tr>
+		<td class="name_col">Fertile</td>
+		<td class="desc_col">The soils of your demiplane are particularly fertile and make for most excellent farmland.</td>
+		<td class="cost_col">1</td>
+		<td class="buy_col"><button type="button" onClick="buy('fertile',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('fertile',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="rich">
+	<tr>
+		<td class="name_col">Rich</td>
+		<td class="desc_col">Your demiplane is rich with ores, minerals, precious gems, and other earthborn resources.</td>
+		<td class="cost_col">3</td>
+		<td class="buy_col"><button type="button" onClick="buy('rich',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('rich',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="magical">
+	<tr>
+		<td class="name_col">Magical Phenomena</td>
+		<td class="desc_col">Sudden shifts in the landscape? Gravity gone all wonky? Have the seasons changed three times in six hours? If you want weird things in your environment, this is it.</td>
+		<td class="cost_col">3</td>
+		<td class="buy_col"><button type="button" onClick="buy('magical',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('magical',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="fauna">
+	<tr>
+		<td class="name_col">Fauna & Flora 1</td>
+		<td class="desc_col">Pick any mixture of fauna and flora that you'd like for your demiplane, provided it currently exists in the world.</td>
+		<td class="cost_col">1</td>
+		<td class="buy_col"><button type="button" onClick="buy('fauna',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('fauna',0)">Refund</button></td>
+	</tr>
+	<tr>
+		<td class="name_col">Fauna & Flora 2</td>
+		<td class="desc_col">The fauna and flora of your realm is no longer limited by what exists or has existed, but by merely what is biologically possible.</td>
+		<td class="cost_col">3</td>
+		<td class="buy_col"><button type="button" onClick="buy('fauna',1)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('fauna',1)">Refund</button></td>
+	</tr>
+	<tr>
+		<td class="name_col">Fauna & Flora 3</td>
+		<td class="desc_col">The fauna and flora of your realm may possess magical abilities or traits and is no longer limited by what is biologically possible.</td>
+		<td class="cost_col">5</td>
+		<td class="buy_col"><button type="button" onClick="buy('fauna',2)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('fauna',2)">Refund</button></td>
+	</tr>
+</table>
+<hr class="no_hr">
+<br>
+</div>
+
+<hr>
+<h1 onclick="slidePanel('adventure')">Adventure</h1>
+<div id="adventure" class="infocus">
+<!-- <img src="adventure.jpg" alt="Adventure" class="img_right"> -->
+<p class="narration">
+If you can change the environment, perhaps you could change it a bit more...
+<br>Perhaps you could make this plane a bit more special, a bit more exciting - a bit more adventurous...
+</p>
+<table id="dungeons">
+	<tr>
+		<td class="name_col">Dungeons 1</td>
+		<td class="desc_col">Your demiplane now possesses an assortment of ruins, caves, dungeons, and so forth.
+		<br>There is treasure to be found if you're willing to look.</td>
+		<td class="cost_col">1</td>
+		<td class="buy_col"><button type="button" onClick="buy('dungeons',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('dungeons',0)">Refund</button></td>
+	</tr>
+	<tr>
+		<td class="name_col">Dungeons 2</td>
+		<td class="desc_col">Your dungeons may be larger, more intricate, and potentially possessing magical natures.
+		<br>The traps will be more complex, the puzzles more puzzling, and there may be monsters or guardians.</td>
+		<td class="cost_col">3</td>
+		<td class="buy_col"><button type="button" onClick="buy('dungeons',1)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('dungeons',1)">Refund</button></td>
+	</tr>
+	<tr>
+		<td class="name_col">Dungeons 3</td>
+		<td class="desc_col">Your dungeons are now maintained by playful spirits and magical forces.
+		<br>Cleared dungeons may be refilled, rearranged, or eliminated entirely to create new and fresh experiencees.</td>
+		<td class="cost_col">5</td>
+		<td class="buy_col"><button type="button" onClick="buy('dungeons',2)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('dungeons',2)">Refund</button></td>
+	</tr>
+</table>
+<table id="spirits">
+	<tr>
+		<td class="name_col">Spirits</td>
+		<td class="desc_col">Your demiplane is now inhabited by spirits, normally incorporeal but potentially capable of assuming a physical presence.
+		<br>The spirits are capable of influencing the environment and living things in various ways, depending upon their purpose and nature.
+		<br>Possible spirits include spirits of the dead, spirits of nature, spirits of magic, spirits of inspiration, and more.</td>
+		<td class="cost_col">2</td>
+		<td class="buy_col"><button type="button" onClick="buy('spirits',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('spirits',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="malice">
+	<tr>
+		<td class="name_col">Malice</td>
+		<td class="desc_col">Something about your realm now encourages strife in its inhabitants. Antagonistic forces are common.
+		<br>Supplies the realm with villains, evil armies, monsters, and more.</td>
+		<td class="cost_col">1</td>
+		<td class="buy_col"><button type="button" onClick="buy('malice',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('malice',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="theme">
+	<tr>
+		<td class="name_col">Theme</td>
+		<td class="desc_col">The laws of reality and general psyche of your realm will alter to suit your choice of theme, or a combination of themes.
+		<br>Allows for strange variations of physics, allowing "Cartoon Physics", "Mecha Physics", or any other variant to reign supreme.
+		<br>Slapstick, soap opera drama, harem romance, comedy, epic fantasy - your realm will become that reality. Choose wisely.</td>
+		<td class="cost_col">4</td>
+		<td class="buy_col"><button type="button" onClick="buy('theme',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('theme',0)">Refund</button></td>
+	</tr>
+</table>
+<hr class="no_hr">
+<br>
+</div>
+
+<hr>
+<h1 onclick="slidePanel('capital')">Capital</h1>
+<div id="capital" class="infocus">
+<!-- <img src="capital.jpg" alt="Capital" class="img_left"> -->
+<p class="narration">
+You can see a place for yourself down below. Just a simple home; nothing special, nothing unique.
+</p>
+<table id="lifestyle">
+	<tr>
+		<td class="name_col">Lifestyle Upgrade 1</td>
+		<td class="desc_col">You are granted a moderately large and certainly luxurious home by the standards of your realm.
+		<br>You additionally now hold assets which provide a very comfortable middle-class income without requiring any input on your part.</td>
+		<td class="cost_col">1</td>
+		<td class="buy_col"><button type="button" onClick="buy('lifestyle',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('lifestyle',0)">Refund</button></td>
+	</tr>
+	<tr>
+		<td class="name_col">Lifestyle Upgrade 2</td>
+		<td class="desc_col">You now live like a king, in a masion or penthous big enough to house dozens of people with room to spare.
+		<br>Your assets are now exceptional, providing you with an exceptionally high class income.</td>
+		<td class="cost_col">3</td>
+		<td class="buy_col"><button type="button" onClick="buy('lifestyle',1)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('lifestyle',1)">Refund</button></td>
+	</tr>
+	<tr>
+		<td class="name_col">Lifestyle Upgrade 3</td>
+		<td class="desc_col">Kings would envy you. Your estate is the size of a small city and has the room to house hundreds, maybe thousands.
+		<br>Your income is simply absurd and you possess a net worth equal to some of the richest people in the world.</td>
+		<td class="cost_col">5</td>
+		<td class="buy_col"><button type="button" onClick="buy('lifestyle',2)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('lifestyle',2)">Refund</button></td>
+	</tr>
+</table>
+<table id="automatons">
+	<tr>
+		<td class="name_col">Automatons 1</td>
+		<td class="desc_col">You possess a small number of absolutely loyal servants. They do not age, tire, or hunger and you may choose how they appear.
+		<br>They are intelligent enough to perform most forms of labor, and have no personal desires of their own.</td>
+		<td class="cost_col">2</td>
+		<td class="buy_col"><button type="button" onClick="buy('automatons',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('automatons',0)">Refund</button></td>
+	</tr>
+	<tr>
+		<td class="name_col">Automatons 2</td>
+		<td class="desc_col">There are now a large number of automatons; enough to form an army, or possibly assume all menial labor in your realm.</td>
+		<td class="cost_col">5</td>
+		<td class="buy_col"><button type="button" onClick="buy('automatons',1)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('automatons',1)">Refund</button></td>
+	</tr>
+</table>
+<table id="influence">
+	<tr>
+		<td class="name_col">Influence 1</td>
+		<td class="desc_col">You are well respected in your demiplane; most people like you and the few that don't will at least respect you.</td>
+		<td class="cost_col">1</td>
+		<td class="buy_col"><button type="button" onClick="buy('influence',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('influence',0)">Refund</button></td>
+	</tr>
+	<tr>
+		<td class="name_col">Influence 2</td>
+		<td class="desc_col">You are now the recognized leader of your society; the equivalent of a president or a king.
+		<br>You have plenty of power and influence, but can be removed from office.</td>
+		<td class="cost_col">3</td>
+		<td class="buy_col"><button type="button" onClick="buy('influence',1)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('influence',1)">Refund</button></td>
+	</tr>
+	<tr>
+		<td class="name_col">Influence 3</td>
+		<td class="desc_col">You are now the unquestioned leader of your society. Here you possess the authority of a god.
+		<br>You have immense power and influence and cannot be removed from office.</td>
+		<td class="cost_col">6</td>
+		<td class="buy_col"><button type="button" onClick="buy('influence',2)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('influence',2)">Refund</button></td>
+	</tr>
+</table>
+<hr class="no_hr">
+<br>
+</div>
+
+<hr>
+<h1 onclick="slidePanel('personal')">Personal</h1>
+<div id="personal" class="infocus">
+<!-- <img src="personal.jpg" alt="Personal" class="img_right"> -->
+<p class="narration">
+You can see what you might be like down there, the same old self you've always been...
+<br>Or perhaps not quite the same...
+</p>
+<table id="immortality">
+	<tr>
+		<td class="name_col">Immortality 1</td>
+		<td class="desc_col">You are immortal and eternally young. Sickness and natural causes will never take you.
+		<br>As a side benefit, eating, sleeping, and relieving yourself are now optional.
+		<br>You can potentially still be killed, but even that will be harder.</td>
+		<td class="cost_col">2</td>
+		<td class="buy_col"><button type="button" onClick="buy('immortality',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('immortality',0)">Refund</button></td>
+	</tr>
+	<tr>
+		<td class="name_col">Immortality 2</td>
+		<td class="desc_col">Not only are you immortal, but so is everyone else in  your realm.
+		<br>Population control won't become an issue and people can still pass on if they wish to.</td>
+		<td class="cost_col">5</td>
+		<td class="buy_col"><button type="button" onClick="buy('immortality',1)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('immortality',1)">Refund</button></td>
+	</tr>
+</table>
+<table id="shapeshift">
+	<tr>
+		<td class="name_col">Shape Shift 1</td>
+		<td class="desc_col">One time only, you may change your appearance to anything you wish.</td>
+		<td class="cost_col">1</td>
+		<td class="buy_col"><button type="button" onClick="buy('shapeshift',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('shapeshift',0)">Refund</button></td>
+	</tr>
+	<tr>
+		<td class="name_col">Shape Shift 2</td>
+		<td class="desc_col">You may now shapeshift at will, thereby changing you appearance as often as you'd like.</td>
+		<td class="cost_col">3</td>
+		<td class="buy_col"><button type="button" onClick="buy('shapeshift',1)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('shapeshift',1)">Refund</button></td>
+	</tr>
+</table>
+<table id="tongues">
+	<tr>
+		<td class="name_col">Tongues</td>
+		<td class="desc_col">You may now comprehend and communicate in any human language; you are the ultimate polyglot.</td>
+		<td class="cost_col">1</td>
+		<td class="buy_col"><button type="button" onClick="buy('tongues',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('tongues',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="memory">
+	<tr>
+		<td class="name_col">Memory</td>
+		<td class="desc_col">Your mind is enhanced with an eidetic memory. Never again will you forget your car keys.</td>
+		<td class="cost_col">2</td>
+		<td class="buy_col"><button type="button" onClick="buy('memory',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('memory',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="mimicry">
+	<tr>
+		<td class="name_col">Mimicry</td>
+		<td class="desc_col">Your body can mimic the movements and physical skills of others. Perfect martial arts just by watching.</td>
+		<td class="cost_col">2</td>
+		<td class="buy_col"><button type="button" onClick="buy('mimicry',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('mimicry',0)">Refund</button></td>
+	</tr>
+</table>
+<hr class="no_hr">
+<br>
+</div>
+
+<hr>
+<h1 onclick="slidePanel('powers')">Powers</h1>
+<div id="powers" class="infocus">
+<!-- <img src="powers.jpg" alt="Powers" class="img_left"> -->
+<p class="narration">
+Of course, if it's possible to improve yourself a little, make yourself a little better...
+</p>
+<table id="superbody">
+	<tr>
+		<td class="name_col">Superhuman Body</td>
+		<td class="desc_col">You are now magically strong, fast, and durable. You might find yourself with unlimited stamina as well. Enjoy.</td>
+		<td class="cost_col">3</td>
+		<td class="buy_col"><button type="button" onClick="buy('superbody',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('superbody',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="teleport">
+	<tr>
+		<td class="name_col">Teleportation</td>
+		<td class="desc_col">You can now teleport! It's tiring and you can't go very far or carry very much... at first.</td>
+		<td class="cost_col">1</td>
+		<td class="buy_col"><button type="button" onClick="buy('teleport',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('teleport',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="spiritwalk">
+	<tr>
+		<td class="name_col">Spirit Walk</td>
+		<td class="desc_col">You have an immortal spirit and you may leave your body or persist after death in a ghostly, incorporeal form.
+		<br>You may regenerate your body through force of will, even if nothing remains but your spirit.</td>
+		<td class="cost_col">3</td>
+		<td class="buy_col"><button type="button" onClick="buy('spiritwalk',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('spiritwalk',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="seer">
+	<tr>
+		<td class="name_col">Seer Senses</td>
+		<td class="desc_col">You now possess extrasensory abilities and a heightened sense of awareness and intuition.
+		<br>You may develop heightened sensory abilities, along with the capacity to perceive magical or spiritual energy.
+		<br>You may divine information about distant locations or past events, and you may predict the future with accuracy but not infallibility.</td>
+		<td class="cost_col">4</td>
+		<td class="buy_col"><button type="button" onClick="buy('seer',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('seer',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="psyker">
+	<tr>
+		<td class="name_col">Psyker Enhancement</td>
+		<td class="desc_col">Telepathy and Telekinesis are yours. Weak at first, but with time and effort they can be improved and you may even develop new psychic powers.</td>
+		<td class="cost_col">2</td>
+		<td class="buy_col"><button type="button" onClick="buy('psyker',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('psyker',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="levitation">
+	<tr>
+		<td class="name_col">Levitation</td>
+		<td class="desc_col">Strangely intuitive, moving through the air comes as easily as moving through the water, which you can also levitate through.
+		<br>Your acceleration, maneuverability, and top speed will all increase with practice.</td>
+		<td class="cost_col">1</td>
+		<td class="buy_col"><button type="button" onClick="buy('levitation',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('levitation',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="hypnotism">
+	<tr>
+		<td class="name_col">Hypnotism</td>
+		<td class="desc_col">You may bend and manipulate the minds of others in most any way you wish: modifying their thoughts, memories, and potentially even their personalities if you so choose.</td>
+		<td class="cost_col">2</td>
+		<td class="buy_col"><button type="button" onClick="buy('hypnotism',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('hypnotism',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="alchemy">
+	<tr>
+		<td class="name_col">Alchemy</td>
+		<td class="desc_col">You now possess the power to, with a touch, transmute and transfigure materials in any way you please.
+		<br>If you possess Healing, you may also transform into living creatures.</td>
+		<td class="cost_col">2</td>
+		<td class="buy_col"><button type="button" onClick="buy('alchemy',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('alchemy',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="healing">
+	<tr>
+		<td class="name_col">Healing</td>
+		<td class="desc_col">You possess the power to restore and regenerate living things.
+		<br>You may heal others of wounds and disease, restore their vitality, and even raise the dead back to life, should you desire to do so.</td>
+		<td class="cost_col">2</td>
+		<td class="buy_col"><button type="button" onClick="buy('healing',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('healing',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="illusion">
+	<tr>
+		<td class="name_col">Illusion</td>
+		<td class="desc_col">You now possess the ability to generate illusions, either freestanding or in the minds of others - even yourself if you so wish.</td>
+		<td class="cost_col">2</td>
+		<td class="buy_col"><button type="button" onClick="buy('illusion',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('illusion',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="elementalism">
+	<tr>
+		<td class="name_col">Elementalism 1</td>
+		<td class="desc_col">You may now create, manipulate, and absorb the power of the elements.
+		<br>Choose one element: Fire, water, air, earth, ice, or electricity.</td>
+		<td class="cost_col">1</td>
+		<td class="buy_col"><button type="button" onClick="buy('elementalism',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('elementalism',0)">Refund</button></td>
+	</tr>
+	<tr>
+		<td class="name_col">Elementalism 2</td>
+		<td class="desc_col">You may now control and manipulate all of the elements.</td>
+		<td class="cost_col">3</td>
+		<td class="buy_col"><button type="button" onClick="buy('elementalism',1)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('elementalism',1)">Refund</button></td>
+	</tr>
+</table>
+<table id="time">
+	<tr>
+		<td class="name_col">Time Manipulation</td>
+		<td class="desc_col">You may not be able to travel through time, but you can warp it. Accelerate or decelerate the passage of time around yourself, other people, or even entire areas.</td>
+		<td class="cost_col">3</td>
+		<td class="buy_col"><button type="button" onClick="buy('time',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('time',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="empowerment">
+	<tr>
+		<td class="name_col">Empowerment</td>
+		<td class="desc_col">You may now imbue magic into inanimate objects, environments, and even other living creatures.
+		<br>Any magical ability or attribute you possess may be enchanted into objects, environments, or living creatures.</td>
+		<td class="cost_col">3</td>
+		<td class="buy_col"><button type="button" onClick="buy('empowerment',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('empowerment',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="dominion">
+	<tr>
+		<td class="name_col">Dominion</td>
+		<td class="desc_col">All benefits from the "Nature" and "Adventure" sections may now be controlled and changed at will.
+		<br>To control an aspect of your realm you must have purchased the benefit from this section.
+		<br>Influencing the realm is slow, short-ranged, and requires great concentration, but will get easier with practice.</td>
+		<td class="cost_col">4</td>
+		<td class="buy_col"><button type="button" onClick="buy('dominion',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('dominion',0)">Refund</button></td>
+	</tr>
+</table>
+<hr class="no_hr">
+<br>
+</div>
+
+<hr>
+<h1 onclick="slidePanel('companions')">Companions</h1>
+<div id="companions" class="infocus">
+<!-- <img src="companions.jpg" alt="Companions" class="img_right"> -->
+<p class="narration">
+Thoughts of friendship, of family, of enemies, and romance flitter across your mind.
+<br>What would a world be, what would a person be, without companionship?
+</p>
+<table id="friends">
+	<tr>
+		<td class="name_col">Friends</td>
+		<td class="desc_col">Spread the wealth. You may bring a number of companions with you into the demiplane.
+		<br>Any personal benefits you possess may be granted to your companions at no extra cost.</td>
+		<td class="cost_col">1</td>
+		<td class="buy_col"><button type="button" onClick="buy('friends',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('friends',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="harem">
+	<tr>
+		<td class="name_col">Harem</td>
+		<td class="desc_col">Something about you now draws attractive members of your proferred sex to you.
+		<br>Creating your own harem would be as easy as asking.</td>
+		<td class="cost_col">1</td>
+		<td class="buy_col"><button type="button" onClick="buy('harem',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('harem',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="waifu">
+	<tr>
+		<td class="name_col">Waifu 1</td>
+		<td class="desc_col">Your waifu will soon meet and fall madly in love with you.
+		<br>You can specify anyone real or fictional, or allow magic and destiny to pick the perfect person.
+		<br>Any personal benefits you possess may be granted to your waifu at no extra cost.</td>
+		<td class="cost_col">3</td>
+		<td class="buy_col"><button type="button" onClick="buy('waifu',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('waifu',0)">Refund</button></td>
+	</tr>
+	<tr>
+		<td class="name_col">Waifu 2</td>
+		<td class="desc_col">You may have a multitude of waifus, for all of your polygamist desires.</td>
+		<td class="cost_col">4</td>
+		<td class="buy_col"><button type="button" onClick="buy('waifu',1)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('waifu',1)">Refund</button></td>
+	</tr>
+</table>
+<table id="rivalry">
+	<tr>
+		<td class="name_col">Rivalry</td>
+		<td class="desc_col">You now possess at least one source of strife in your life.
+		<br>Antagonistic forces which complicate your existence in a stimulating and thrilling fashion.
+		<br>You possess no direct influence over this. Your rivalry will be formulated to you based on the forces of magic and destiny.</td>
+		<td class="cost_col">3</td>
+		<td class="buy_col"><button type="button" onClick="buy('rivalry',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('rivalry',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="familiar">
+	<tr>
+		<td class="name_col">Familiar</td>
+		<td class="desc_col">Part of your soul is sheared off and developed into a familiar. You may allow it to develop naturally or create it with a specific shape or personality.
+		<br>Your minds and souls are linked. You may communicate telepathically, share senses or knowledge, even assume direct control over one another's bodies (with permission, of course).
+		<br>Your familiar cannot truly be killed as long as you live. If its body is destroyed, it will be recreated near you. Possesses all of your magic and personal boons.</td>
+		<td class="cost_col">3</td>
+		<td class="buy_col"><button type="button" onClick="buy('familiar',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('familiar',0)">Refund</button></td>
+	</tr>
+</table>
+<hr class="no_hr">
+<br>
+</div>
+
+<hr>
+<h1 onclick="slidePanel('magic')">Magic</h1>
+<div id="magic" class="infocus">
+<!-- <img src="magic.jpg" alt="Magic" class="img_left"> -->
+<p class="narration">
+You look toward the being before you. A god of creation...
+<br>What about a lot of power?
+</p>
+<table id="magic_aff">
+	<tr>
+		<td class="name_col">Magical Affinity</td>
+		<td class="desc_col">You are granted as much magical affinity as your soul is prepared to take.
+		<br>Your other powers have grown stronger and you are now able to take up and master entirely new ones.</td>
+		<td class="cost_col">6</td>
+		<td class="buy_col"><button type="button" onClick="buy('magic_aff',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('magic_aff',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="spellbook">
+	<tr>
+		<td class="name_col">Wizard's Spellbook</td>
+		<td class="desc_col">An enchanted semi-indestructible spellbook containing a library's worth of magical information. Provides nothing but knowledge, which is plenty enough to start you on the path to becoming truly powerful.
+		<br>Hard to lose; will always find its way back to its rightful owner.</td>
+		<td class="cost_col">2</td>
+		<td class="buy_col"><button type="button" onClick="buy('spellbook',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('spellbook',0)">Refund</button></td>
+	</tr>
+</table>
+<table id="study">
+	<tr>
+		<td class="name_col">Wizard's Study</td>
+		<td class="desc_col">A vast library, of which only you and those you allow may access.
+		<br>It contains everything an individual could ever possibly need to advance their own knowledge or power.
+		<br>Although possible, matching your benefactor's level of power might take a few years... or a few thousand...</td>
+		<td class="cost_col">6</td>
+		<td class="buy_col"><button type="button" onClick="buy('study',0)">Purchase</button></td>
+		<td class="refund_col"><button type="button"onClick="refund('study',0)">Refund</button></td>
+	</tr>
+</table>
+<hr class="no_hr">
+<br>
+</div>
+
+</body>
+
+</html>
