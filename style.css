@@ -1,0 +1,266 @@
+body {
+	font-size: 100%;
+}
+
+h1 {
+	text-align: center;
+	font-style: italic;
+	font-size: 3em;
+	font-family: Palatino, serif;
+}
+
+table {
+	margin-left: auto;
+	margin-right: auto;
+	border-collapse: collapse;
+	table-layout: fixed;
+}
+
+hr {
+	clear: both;
+}
+
+.narration {
+	text-align: center;
+	font-size: 1em;
+	font-family: Arial, sans;
+}
+
+.god {
+	text-align: center;
+	font-style: italic;
+	font-family: Arial, sans;
+}
+
+/* .img_left {
+	float: left;
+}
+ */
+ 
+/* .img_right {
+	float: right;
+}
+  */
+
+  .name_col {
+	font-weight: bold;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.cost_col {
+	font-weight: bold;
+	width: 15px;
+	text-align: center;
+}
+
+.buy_col {
+	width: 75px;
+}
+
+.refund_col {
+	width: 75px;
+	display: none;
+}
+
+.purchased td.refund_col {
+	display: block;
+	text-align: center;
+}
+
+.purchased td.buy_col {
+	display: none;
+}
+
+.no_hr {
+	background: none;
+	clear: both;
+	float: none;
+	width: 100%;
+	height: 1px;
+	border: none;
+	margin: -1px 0;
+}
+
+.purchased {
+	background-color: #99dd55;
+}
+
+.nodisplay {
+	display: none;
+}
+
+.infocus {
+	display: block;
+}
+
+#counter {
+	position: fixed;
+	color: red;
+	right: 20px;
+	bottom: 30px;
+	font-weight: bold;
+}
+
+#demiplanes table {
+	max-width: 600px;
+}
+
+#demiplanes table td.name_col {
+	width: 120px;
+}
+
+#demiplanes table td.desc_col {
+	width: 100%;
+	display: inline-block;
+}
+
+#planar table {
+	max-width: 1000px;
+}
+
+#planar table td.name_col {
+	width: 120px;
+}
+
+#planar table td.desc_col {
+	width: 80%;
+}
+
+#inhabitants table {
+	max-width: 970px;
+}
+
+#inhabitants table td.name_col{
+	min-width: 90px;
+}
+
+#inhabitants table td.desc_col{
+	width: 85%;
+}
+
+#technology table td.name_col{
+}
+
+#infrastructure table {
+	max-width: 950px;
+	vertical-align: middle;
+}
+
+#infrastructure table td.name_col {
+	width: 100px;
+}
+
+#infrastructure table td.desc_col {
+	width: 80%;
+}
+
+#society table {
+	max-width: 950px;
+}
+
+#society table td.name_col {
+	min-width: 100px;
+}
+
+#society table td.desc_col {
+	width: 80%
+}
+
+#culture table {
+	max-width: 950px;
+}
+
+#culture table td.name_col {
+	width: 160px;
+}
+
+#culture table td.desc_col {
+	width: 75%;
+}
+
+#environment table {
+	max-width: 1000px;
+}
+
+#environment table td.name_col {
+	min-width: 80px;
+}
+
+#environment table td.desc_col {
+	width: 90%;
+}
+
+#adventure table {
+	max-width: 970px;
+}
+
+#adventure table td.name_col {
+	width: 90px;
+}
+
+#adventure table td.desc_col {
+	width: 81%;
+}
+
+#capital table {
+	max-width: 1000px;
+}
+
+#capital table td.name_col {
+	width: 150px;
+}
+
+#capital table td.desc_col {
+	width: 80%;
+}
+
+#personal table {
+	max-width: 900px;
+}
+
+#personal table td.name_col {
+	width: 100px;
+}
+
+#personal table td.desc_col {
+	width: 76%;
+}
+
+#powers table {
+	max-width: 1000px;
+}
+
+#powers table td.name_col {
+	max-width: 160px;
+	min-width: 110px;
+}
+
+#powers table td.desc_col {
+	width: 90%;
+}
+
+#companions table {
+	max-width: 750px;
+}
+
+#companions table td.name_col{
+	width: 70px;
+}
+
+#companions table td.desc_col {
+	width: 78%;
+}
+
+#magic table {
+	max-width: 850px;
+}
+
+#magic table td.name_col {
+	max-width: 150px;
+	min-width: 80px;
+}
+
+#magic table td.desc_col {
+	width: 77%;
+}
