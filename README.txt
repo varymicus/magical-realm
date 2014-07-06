@@ -4,6 +4,8 @@ Created by Varymicus for /tg/
 Based on the image CYOA created by Vexarian and updated by Bliss !I2GsKZRAQk
 
 --VERSION HISTORY--
+-v2.2 released 2014-07-06
+Fixed enchanting bug.
 -v2.1 released 2014-07-06
 Updated to allow two complications to be chosen.
 -v2.0 released 2014-07-06
