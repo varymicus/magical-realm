@@ -1,9 +1,11 @@
 Interactive Magical Realm CYOA - README.txt
-Release v2.0 at 2014-07-06
+Release v2.1 at 2014-07-06
 Created by Varymicus for /tg/
 Based on the image CYOA created by Vexarian and updated by Bliss !I2GsKZRAQk
 
 --VERSION HISTORY--
+-v2.1 released 2014-07-06
+Updated to allow two complications to be chosen.
 -v2.0 released 2014-07-06
 Updated to v3.0 of the image CYOA. Summary section added.
 -v1.0 released 2014-06-16-

@@ -10,7 +10,7 @@
 <script src="script.js"></script>
 
 <p id="counter">100</p>
-<p id="summary" class="nodisplay"></p>
+<p id="summary"></p>
 <h1 onclick="slidePanel('intro')">"How would you like a Magical Realm?"</h1>
 <div id="intro" class="infocus">
 <p class="narration">
@@ -1605,8 +1605,8 @@ You may take up two complications from the list below. For <b>50</b> additional 
 			You are incapable of leaving your realm. There might be a chance to break the curse from the outside eventually.
 		</td>
 		<td class="cost_col">-50</td>
-		<td class="buy_col"><button type="button" onClick="buy('complic_tbl',0)">Choose</button></td>
-		<td class="refund_col"><button type="button"onClick="refund('complic_tbl',0)">Revoke</button></td>
+		<td class="buy_col"><button type="button" onClick="take_comp(0)">Choose</button></td>
+		<td class="refund_col"><button type="button"onClick="revoke_comp(0)">Revoke</button></td>
 	</tr>
 	<tr>
 		<td class="name_col">Partnership!</td>
@@ -1614,8 +1614,8 @@ You may take up two complications from the list below. For <b>50</b> additional 
 			You must share your realm with another, who will have as much influence and power as you yourself.
 		</td>
 		<td class="cost_col">-50</td>
-		<td class="buy_col"><button type="button" onClick="buy('complic_tbl',1)">Choose</button></td>
-		<td class="refund_col"><button type="button"onClick="refund('complic_tbl',1)">Revoke</button></td>
+		<td class="buy_col"><button type="button" onClick="take_comp(1)">Choose</button></td>
+		<td class="refund_col"><button type="button"onClick="revoke_comp(1)">Revoke</button></td>
 	</tr>
 	<tr>
 		<td class="name_col">Sadism!</td>
@@ -1623,8 +1623,8 @@ You may take up two complications from the list below. For <b>50</b> additional 
 			Your life force is sustained by the suffering of others, be it within your realm or simply brought about in your name.
 		</td>
 		<td class="cost_col">-50</td>
-		<td class="buy_col"><button type="button" onClick="buy('complic_tbl',2)">Choose</button></td>
-		<td class="refund_col"><button type="button"onClick="refund('complic_tbl',2)">Revoke</button></td>
+		<td class="buy_col"><button type="button" onClick="take_comp(2)">Choose</button></td>
+		<td class="refund_col"><button type="button"onClick="revoke_comp(2)">Revoke</button></td>
 	</tr>
 	<tr>
 		<td class="name_col">Artifact!</td>
@@ -1632,8 +1632,8 @@ You may take up two complications from the list below. For <b>50</b> additional 
 			All of your personal benefits are tied to an artifact. It is highly resistant to damage but may be stolen or destroyed.
 		</td>
 		<td class="cost_col">-50</td>
-		<td class="buy_col"><button type="button" onClick="buy('complic_tbl',3)">Choose</button></td>
-		<td class="refund_col"><button type="button"onClick="refund('complic_tbl',3)">Revoke</button></td>
+		<td class="buy_col"><button type="button" onClick="take_comp(3)">Choose</button></td>
+		<td class="refund_col"><button type="button"onClick="revoke_comp(3)">Revoke</button></td>
 	</tr>
 	<tr>
 		<td class="name_col">Nightmare!</td>
@@ -1641,8 +1641,8 @@ You may take up two complications from the list below. For <b>50</b> additional 
 			You've attracted something... else; something unspeakably horrifying that you and your realm will have to deal with.
 		</td>
 		<td class="cost_col">-50</td>
-		<td class="buy_col"><button type="button" onClick="buy('complic_tbl',4)">Choose</button></td>
-		<td class="refund_col"><button type="button"onClick="refund('complic_tbl',4)">Revoke</button></td>
+		<td class="buy_col"><button type="button" onClick="take_comp(4)">Choose</button></td>
+		<td class="refund_col"><button type="button"onClick="revoke_comp(4)">Revoke</button></td>
 	</tr>
 	<tr>
 		<td class="name_col">Bound!</td>
@@ -1650,8 +1650,8 @@ You may take up two complications from the list below. For <b>50</b> additional 
 			Your word is your law. You may never knowingly break your words, or allow it to be broken. Should you fail to do so, you wil endure tremendous suffering.
 		</td>
 		<td class="cost_col">-50</td>
-		<td class="buy_col"><button type="button" onClick="buy('complic_tbl',5)">Choose</button></td>
-		<td class="refund_col"><button type="button"onClick="refund('complic_tbl',5)">Revoke</button></td>
+		<td class="buy_col"><button type="button" onClick="take_comp(5)">Choose</button></td>
+		<td class="refund_col"><button type="button"onClick="revoke_comp(5)">Revoke</button></td>
 	</tr>
 	<tr>
 		<td class="name_col">Turmoil!</td>
@@ -1659,8 +1659,8 @@ You may take up two complications from the list below. For <b>50</b> additional 
 			An antagonistic rival personality emerges within you, occasionally seizing control of your body, this will be very complicated to deal with...
 		</td>
 		<td class="cost_col">-50</td>
-		<td class="buy_col"><button type="button" onClick="buy('complic_tbl',6)">Choose</button></td>
-		<td class="refund_col"><button type="button"onClick="refund('complic_tbl',6)">Revoke</button></td>
+		<td class="buy_col"><button type="button" onClick="take_comp(6)">Choose</button></td>
+		<td class="refund_col"><button type="button"onClick="revoke_comp(6)">Revoke</button></td>
 	</tr>
 	<tr>
 		<td class="name_col">Notorious!</td>
@@ -1668,8 +1668,8 @@ You may take up two complications from the list below. For <b>50</b> additional 
 			You are notorious in your realm, but for all the wrong reasons. You are currently regarded as one of the worst villains in their history or mythology... and it will not be easy to change their minds.
 		</td>
 		<td class="cost_col">-50</td>
-		<td class="buy_col"><button type="button" onClick="buy('complic_tbl',7)">Choose</button></td>
-		<td class="refund_col"><button type="button"onClick="refund('complic_tbl',7)">Revoke</button></td>
+		<td class="buy_col"><button type="button" onClick="take_comp(7)">Choose</button></td>
+		<td class="refund_col"><button type="button"onClick="revoke_comp(7)">Revoke</button></td>
 	</tr>
 	<tr>
 		<td class="name_col">Exile!</td>
@@ -1677,8 +1677,8 @@ You may take up two complications from the list below. For <b>50</b> additional 
 			Being in the presence of others drains you of your power and life force. The more people around the worse it is. A great deal of effort and time and you may be able to fix this.
 		</td>
 		<td class="cost_col">-50</td>
-		<td class="buy_col"><button type="button" onClick="buy('complic_tbl',8)">Choose</button></td>
-		<td class="refund_col"><button type="button"onClick="refund('complic_tbl',8)">Revoke</button></td>
+		<td class="buy_col"><button type="button" onClick="take_comp(8)">Choose</button></td>
+		<td class="refund_col"><button type="button"onClick="revoke_comp(8)">Revoke</button></td>
 	</tr>
 	<tr>
 		<td class="name_col">Cursed!</td>
@@ -1686,8 +1686,8 @@ You may take up two complications from the list below. For <b>50</b> additional 
 			You are burdened with a great and terrible curse upon your life. Misfortune, annoyance, and infuriation are commonplace for you.
 		</td>
 		<td class="cost_col">-50</td>
-		<td class="buy_col"><button type="button" onClick="buy('complic_tbl',9)">Choose</button></td>
-		<td class="refund_col"><button type="button"onClick="refund('complic_tbl',9)">Revoke</button></td>
+		<td class="buy_col"><button type="button" onClick="take_comp(9)">Choose</button></td>
+		<td class="refund_col"><button type="button"onClick="revoke_comp(9)">Revoke</button></td>
 	</tr>
 	<tr>
 		<td class="name_col">Amnesia!</td>
@@ -1695,8 +1695,8 @@ You may take up two complications from the list below. For <b>50</b> additional 
 			All of your memories prior are now lost; you awaken in the realm without any knowledge of who or where you are.
 		</td>
 		<td class="cost_col">-50</td>
-		<td class="buy_col"><button type="button" onClick="buy('complic_tbl',10)">Choose</button></td>
-		<td class="refund_col"><button type="button"onClick="refund('complic_tbl',10)">Revoke</button></td>
+		<td class="buy_col"><button type="button" onClick="take_comp(10)">Choose</button></td>
+		<td class="refund_col"><button type="button"onClick="revoke_comp(10)">Revoke</button></td>
 	</tr>
 	<tr>
 		<td class="name_col">Benevolent!</td>
@@ -1704,8 +1704,8 @@ You may take up two complications from the list below. For <b>50</b> additional 
 			Sustaining your life force requires the granting of boons to others, at your discretion. However, they must be fulfilled to the spirit of the request, not the wording.
 		</td>
 		<td class="cost_col">-50</td>
-		<td class="buy_col"><button type="button" onClick="buy('complic_tbl',11)">Choose</button></td>
-		<td class="refund_col"><button type="button"onClick="refund('complic_tbl',11)">Revoke</button></td>
+		<td class="buy_col"><button type="button" onClick="take_comp(11)">Choose</button></td>
+		<td class="refund_col"><button type="button"onClick="revoke_comp(11)">Revoke</button></td>
 	</tr>
 </table>
 <hr class="no_hr">

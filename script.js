@@ -92,11 +92,20 @@ function disable_tbl(table) {
 }
 
 function disable_row(table, rowNum) {
-	var row = document.getElementById(table).getElementsByTagName("tr")[rowNum];
+	var row = document.getElementById(table).getElementsByTagName("tr")[rowNum];	
 	if(row.className == "purchased") {
-		row.className = "row_disabled_purchased";
+		row.className = "row_disabled_purchased";	
 	} else {
 		row.className = "row_disabled";
+	}
+}
+
+function enable_row(table, rowNum) {
+	var row = document.getElementById(table).getElementsByTagName("tr")[rowNum];	
+	if(row.className == "row_disabled_purchased") {
+		row.className = "purchased";	
+	} else if(row.className == "row_disabled") {
+		row.className = "";
 	}
 }
 
@@ -117,4 +126,62 @@ function gen_summary() {
 	}
 	
 	document.getElementById("p_summary").innerText = outText;
+}
+
+function take_comp(rowNum) {
+	var complications = document.getElementById('complic_tbl').getElementsByTagName("tr");
+	//count # of complications taken
+	var count=0;
+	for(var i=0; i<complications.length; i++) {
+		if(complications[i].className == "purchased") {
+			count = count + 1;
+		}
+	}
+		
+	switch(count) {
+		case 0:
+			buy('complic_tbl',rowNum);
+			document.getElementById("btnRoll").disabled = true;
+			break;
+		case 1:
+			var summary = document.getElementById("summary");
+			var wallet = document.getElementById("counter");
+			var points = parseInt(wallet.innerText);
+			
+			//purchase option
+			points = points - getCost(complications[rowNum]);	
+			complications[rowNum].className = "purchased";
+			summary.innerText = summary.innerText + "complic_tbl" + " " + rowNum.toString() + "|"; //update summary
+			wallet.innerText = points.toString(); //update counter
+						
+			//disable other complications
+			for(i=0; i<complications.length; i++) {
+				if(complications[i].className != "purchased") {
+					disable_row('complic_tbl',i);
+				}
+			}
+			break;
+		default:
+			break;
+	}
+}
+
+function revoke_comp(rowNum) {
+	refund('complic_tbl', rowNum);
+	
+	//ensure other complications are enabled
+	var complications = document.getElementById('complic_tbl').getElementsByTagName("tr");
+	var count=0;
+	for(i=0; i<complications.length; i++) {
+		enable_row('complic_tbl',i);
+		if(complications[i].className == "purchased") {
+			count = count + 1;
+		}
+	}
+	
+	//enable roll button if no comps taken
+	if(count == 0) {
+		document.getElementById('btnRoll').disabled = false;
+	}
+	
 }
