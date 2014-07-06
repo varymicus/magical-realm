@@ -32,17 +32,7 @@ hr {
 	font-family: Arial, sans;
 }
 
-/* .img_left {
-	float: left;
-}
- */
- 
-/* .img_right {
-	float: right;
-}
-  */
-
-  .name_col {
+ .name_col {
 	font-weight: bold;
 	vertical-align: middle;
 	text-align: center;
@@ -50,7 +40,7 @@ hr {
 
 .cost_col {
 	font-weight: bold;
-	width: 15px;
+	width: 20px;
 	text-align: center;
 }
 
@@ -64,7 +54,7 @@ hr {
 }
 
 .purchased td.refund_col {
-	display: block;
+	display: table-cell;
 	text-align: center;
 }
 
@@ -94,6 +84,26 @@ hr {
 	display: block;
 }
 
+.row_disabled td.buy_col {
+	display: none;
+}
+
+.row_disabled td.refund_col {
+	display: none;
+}
+
+.row_disabled_purchased {
+	background-color: #99dd55;
+}
+
+.row_disabled_purchased td.buy_col{
+	display: none;
+}
+
+.row_disabled_purchased td.refund_col{
+	display: none;
+}
+
 #counter {
 	position: fixed;
 	color: red;
@@ -103,7 +113,7 @@ hr {
 }
 
 #demiplanes table {
-	max-width: 600px;
+	max-width: 620px;
 }
 
 #demiplanes table td.name_col {
@@ -263,4 +273,8 @@ hr {
 
 #magic table td.desc_col {
 	width: 77%;
+}
+
+#complic_tbl .cost_col {
+	display: none;
 }
