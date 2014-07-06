@@ -7,12 +7,22 @@ function getCost(row) {
 	return 0;
 }
 
+function getBonus(row) {
+	for(var i = 0; i < row.cells.length; i++) {
+		if(row.cells[i].className == "bonus_col") {
+			return parseInt(row.cells[i].innerHTML);
+		}
+	}
+	return 0;
+}
+
 function buy(tableName, rowNum) {
 	var summary = document.getElementById("summary");
 	var wallet = document.getElementById("counter");
 	var points = parseInt(wallet.innerText);
 	var options = document.getElementById(tableName).getElementsByTagName("tr");
 	var cost = getCost(options[rowNum]);
+	var bonus = getBonus(options[rowNum]);
 	
 	if(points >= cost) {
 		//refund other purchases in same chain
@@ -21,7 +31,7 @@ function buy(tableName, rowNum) {
 		}
 		
 		//purchase option
-		points = points - cost;
+		points = points - cost + bonus;
 		options[rowNum].className = "purchased";
 		summary.innerText = summary.innerText + tableName + " " + rowNum.toString() + "|"; //update summary
 	}
@@ -36,7 +46,7 @@ function refund(tableName, rowNum) {
 	var points = parseInt(wallet.innerText);
 	var row = document.getElementById(tableName).getElementsByTagName("tr")[rowNum];
 	if(row.className == "purchased") {
-		points = points + getCost(row);
+		points = points + getCost(row) - getBonus(row);
 		
 		//update summary
 		var sumText = summary.innerText;

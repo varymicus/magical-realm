@@ -104,6 +104,10 @@ hr {
 	display: none;
 }
 
+.bonus_col {
+	display: none;
+}
+
 #counter {
 	position: fixed;
 	color: red;
