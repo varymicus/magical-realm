@@ -107,15 +107,17 @@ function roll_choice(button, tableName, max_rolls) {
 	if(count_taken(tableName) >= max_rolls) {
 		points = 0;
 		btn.disabled = "true";
-		disable_tbl(tableName);
+		disable_tbl(tableName,1);
 	}
 }
 
-function disable_tbl(tableName) {
+function disable_tbl(tableName, allowPurchased) {
 	var rows = document.getElementById(tableName).getElementsByTagName("tr");
 	var wallet = document.getElementById("counter");
 	for(var i=0; i<rows.length; i++) {
-		disable_row(tableName, i);
+		if(!allowPurchased || rows[i].className != "purchased") {
+			disable_row(tableName, i);
+		}
 	}
 }
 
@@ -153,14 +155,23 @@ function enable_row(tableName, rowNum) {
 }
 
 function gen_summary() {
+	//tableName rowNum|
 	var sumText = document.getElementById("summary").innerText;
 	var outText = "";
 	var str_tok = sumText.split("|");
 	var cur_tok = "";
 	var row;
+	var baubles = 100;
 	for(var i=0; i<str_tok.length-1; i++) {	
 		cur_tok = str_tok[i].split(" ");
 		row = document.getElementById(cur_tok[0]).getElementsByTagName("tr")[cur_tok[1]];
+		baubles = baubles - getCost(row);
+		if(row.className == "rolled") {
+			baubles = baubles + getBonus(row);
+			outText = outText + "[" + baubles + "] " + "Rolled: ";
+		} else {
+			outText = outText + "[" + baubles + "] ";
+		}
 		for(var j=0; j<row.cells.length; j++) {
 			if(row.cells[j].className == "name_col") {
 				outText = outText + row.cells[j].innerHTML + "\n"
