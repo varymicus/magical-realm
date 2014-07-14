@@ -19,7 +19,7 @@ function getBonus(row) {
 function buy(tableName, rowNum, method, noclear) {
 	var summary = document.getElementById("summary");
 	var wallet = document.getElementById("counter");
-	var points = parseInt(wallet.innerText);
+	var points = parseInt(wallet.innerHTML);
 	var options = document.getElementById(tableName).getElementsByTagName("tr");
 	var cost = getCost(options[rowNum]);
 	var bonus = getBonus(options[rowNum]);
@@ -30,43 +30,48 @@ function buy(tableName, rowNum, method, noclear) {
 			for(var i = 0; i < options.length; i++) {
 				points = refund(tableName, i);
 			}
-		}		
+		}	
 		
 		//purchase option
 		if(method == "roll") {
 			options[rowNum].className = "rolled";
 			points = points + bonus;
 		} else {
+			if(tableName == "artifact") {
+				points = points + bonus;
+			}
 			options[rowNum].className = "purchased";
 		}
 		points = points - cost;
-		summary.innerText = summary.innerText + tableName + " " + rowNum.toString() + "|"; //update summary
+		summary.innerHTML = summary.innerHTML + tableName + " " + rowNum.toString() + "|"; //update summary
 	}
 	
-	wallet.innerText = points.toString(); //update counter
+	wallet.innerHTML = points.toString(); //update counter
 	return points;
 }
 
 function refund(tableName, rowNum, method) {
 	var summary = document.getElementById("summary");
 	var wallet = document.getElementById("counter");
-	var points = parseInt(wallet.innerText);
+	var points = parseInt(wallet.innerHTML);
 	var row = document.getElementById(tableName).getElementsByTagName("tr")[rowNum];
 	if(is_taken(tableName, rowNum)) {
 		points = points + getCost(row);
 		if(row.className == "rolled") {
 			points = points - getBonus(row);
+		} else if(tableName == "artifact") {
+			points = points - getBonus(row);
 		}
 		
 		//update summary
-		var sumText = summary.innerText;
+		var sumText = summary.innerHTML;
 		var key = tableName + " " + rowNum;
 		var key_start = sumText.indexOf(key);
 		//grab everything before and after the refunded choice
-		summary.innerText = sumText.slice(0, key_start) + sumText.slice(key_start + key.length + 1);
+		summary.innerHTML = sumText.slice(0, key_start) + sumText.slice(key_start + key.length + 1);
 	}
 	row.className = "";
-	wallet.innerText = points.toString();
+	wallet.innerHTML = points.toString();
 	
 	return points;
 }
@@ -96,9 +101,8 @@ function roll_choice(button, tableName, max_rolls) {
 	if(confirmed == true) {
 		var btn = document.getElementById(button);
 		var wallet = document.getElementById("counter");
-		var points = parseInt(wallet.innerText);
+		var points = parseInt(wallet.innerHTML);
 		var choice = roll(1,12) - 1;
-		var choice = 1;
 		while(is_taken(tableName, choice)) {
 			choice = roll(1,12) - 1;
 		}
@@ -156,7 +160,7 @@ function enable_row(tableName, rowNum) {
 
 function gen_summary() {
 	//tableName rowNum|
-	var sumText = document.getElementById("summary").innerText;
+	var sumText = document.getElementById("summary").innerHTML;
 	var outText = "";
 	var str_tok = sumText.split("|");
 	var cur_tok = "";
@@ -179,7 +183,7 @@ function gen_summary() {
 		}
 	}
 	
-	document.getElementById("p_summary").innerText = outText;
+	document.getElementById("p_summary").innerHTML = outText;
 }
 
 function take_comp(rowNum) {
