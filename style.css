@@ -108,6 +108,18 @@ hr {
 	display: none;
 }
 
+.rolled {
+	background-color: #99dd55;
+}
+
+.rolled td.buy_col{
+	display: none;
+}
+
+.rolled td.refund_col {
+	display: none;
+}
+
 #counter {
 	position: fixed;
 	color: red;

@@ -16,47 +16,57 @@ function getBonus(row) {
 	return 0;
 }
 
-function buy(tableName, rowNum) {
+function buy(tableName, rowNum, method, noclear) {
 	var summary = document.getElementById("summary");
 	var wallet = document.getElementById("counter");
-	var points = parseInt(wallet.innerHTML);
+	var points = parseInt(wallet.innerText);
 	var options = document.getElementById(tableName).getElementsByTagName("tr");
 	var cost = getCost(options[rowNum]);
 	var bonus = getBonus(options[rowNum]);
 	
 	if(points >= cost) {
-		//refund other purchases in same chain
-		for(var i = 0; i < options.length; i++) {
-			points = refund(tableName, i);
-		}
+		if(noclear != 0) {
+			//refund other purchases in same chain
+			for(var i = 0; i < options.length; i++) {
+				points = refund(tableName, i);
+			}
+		}		
 		
 		//purchase option
-		points = points - cost + bonus;
-		options[rowNum].className = "purchased";
-		summary.innerHTML = summary.innerHTML + tableName + " " + rowNum.toString() + "|"; //update summary
+		if(method == "roll") {
+			options[rowNum].className = "rolled";
+			points = points + bonus;
+		} else {
+			options[rowNum].className = "purchased";
+		}
+		points = points - cost;
+		summary.innerText = summary.innerText + tableName + " " + rowNum.toString() + "|"; //update summary
 	}
 	
-	wallet.innerHTML = points.toString(); //update counter
+	wallet.innerText = points.toString(); //update counter
 	return points;
 }
 
-function refund(tableName, rowNum) {
+function refund(tableName, rowNum, method) {
 	var summary = document.getElementById("summary");
 	var wallet = document.getElementById("counter");
-	var points = parseInt(wallet.innerHTML);
+	var points = parseInt(wallet.innerText);
 	var row = document.getElementById(tableName).getElementsByTagName("tr")[rowNum];
-	if(row.className == "purchased") {
-		points = points + getCost(row) - getBonus(row);
+	if(is_taken(tableName, rowNum)) {
+		points = points + getCost(row);
+		if(row.className == "rolled") {
+			points = points - getBonus(row);
+		}
 		
 		//update summary
-		var sumText = summary.innerHTML;
+		var sumText = summary.innerText;
 		var key = tableName + " " + rowNum;
 		var key_start = sumText.indexOf(key);
 		//grab everything before and after the refunded choice
-		summary.innerHTML = sumText.slice(0, key_start) + sumText.slice(key_start + key.length + 1);
+		summary.innerText = sumText.slice(0, key_start) + sumText.slice(key_start + key.length + 1);
 	}
 	row.className = "";
-	wallet.innerHTML = points.toString();
+	wallet.innerText = points.toString();
 	
 	return points;
 }
@@ -78,40 +88,63 @@ function roll(dice, sides) {
 	return total;
 }
 
-function roll_choice(button, table, bonus) {
+function roll_choice(button, tableName, max_rolls) {
 	var confirmed = window.confirm("Are you sure you want to take a random option? This may not be reversible.");
+	if(!max_rolls) {
+		max_rolls = 999;
+	}
 	if(confirmed == true) {
 		var btn = document.getElementById(button);
 		var wallet = document.getElementById("counter");
-		var points = parseInt(wallet.innerHTML);
+		var points = parseInt(wallet.innerText);
 		var choice = roll(1,12) - 1;
-		points = buy(table,choice);
-		points = points + bonus;
-		wallet.innerHTML = points.toString();
-		btn.disabled = true;
-		disable_tbl('complic_tbl');
+		var choice = 1;
+		while(is_taken(tableName, choice)) {
+			choice = roll(1,12) - 1;
+		}
+		buy(tableName,choice,"roll",0);
+	}
+	if(count_taken(tableName) >= max_rolls) {
+		points = 0;
+		btn.disabled = "true";
+		disable_tbl(tableName);
 	}
 }
 
-function disable_tbl(table) {
-	var rows = document.getElementById(table).getElementsByTagName("tr");
+function disable_tbl(tableName) {
+	var rows = document.getElementById(tableName).getElementsByTagName("tr");
 	var wallet = document.getElementById("counter");
 	for(var i=0; i<rows.length; i++) {
-		disable_row(table, i);
+		disable_row(tableName, i);
 	}
 }
 
-function disable_row(table, rowNum) {
-	var row = document.getElementById(table).getElementsByTagName("tr")[rowNum];	
-	if(row.className == "purchased") {
-		row.className = "row_disabled_purchased";	
-	} else {
-		row.className = "row_disabled";
+function disable_row(tableName, rowNum) {
+	var row = document.getElementById(tableName).getElementsByTagName("tr")[rowNum];
+	switch(row.className) {
+		case "purchased":
+			row.className = "row_disabled_purchased";
+			break;
+		case "rolled":
+			break;
+		default:
+			row.className = "row_disabled";
 	}
 }
 
-function enable_row(table, rowNum) {
-	var row = document.getElementById(table).getElementsByTagName("tr")[rowNum];	
+function count_taken(tableName) {
+	var rows = document.getElementById(tableName).getElementsByTagName("tr");
+	var count = 0;
+	for(var i=0; i<rows.length; i++) {
+		if(is_taken(tableName, i)) {
+			count = count + 1;
+		}
+	}
+	return count;
+}
+
+function enable_row(tableName, rowNum) {
+	var row = document.getElementById(tableName).getElementsByTagName("tr")[rowNum];	
 	if(row.className == "row_disabled_purchased") {
 		row.className = "purchased";	
 	} else if(row.className == "row_disabled") {
@@ -120,7 +153,7 @@ function enable_row(table, rowNum) {
 }
 
 function gen_summary() {
-	var sumText = document.getElementById("summary").innerHTML;
+	var sumText = document.getElementById("summary").innerText;
 	var outText = "";
 	var str_tok = sumText.split("|");
 	var cur_tok = "";
@@ -130,46 +163,33 @@ function gen_summary() {
 		row = document.getElementById(cur_tok[0]).getElementsByTagName("tr")[cur_tok[1]];
 		for(var j=0; j<row.cells.length; j++) {
 			if(row.cells[j].className == "name_col") {
-				outText = outText + row.cells[j].innerHTML + "<br>"
+				outText = outText + row.cells[j].innerHTML + "\n"
 			}
 		}
 	}
 	
-	document.getElementById("p_summary").innerHTML = outText;
+	document.getElementById("p_summary").innerText = outText;
 }
 
 function take_comp(rowNum) {
-	var complications = document.getElementById('complic_tbl').getElementsByTagName("tr");
+	var tableName = 'complic_tbl';
+	var complications = document.getElementById(tableName).getElementsByTagName("tr");
 	//count # of complications taken
-	var count=0;
-	for(var i=0; i<complications.length; i++) {
-		if(complications[i].className == "purchased") {
-			count = count + 1;
-		}
-	}
-		
+	var count = count_taken(tableName);
+	
 	switch(count) {
 		case 0:
-			buy('complic_tbl',rowNum);
-			document.getElementById("btnRoll").disabled = true;
+			buy(tableName,rowNum);
 			break;
 		case 1:
-			var summary = document.getElementById("summary");
-			var wallet = document.getElementById("counter");
-			var points = parseInt(wallet.innerHTML);
-			
-			//purchase option
-			points = points - getCost(complications[rowNum]);	
-			complications[rowNum].className = "purchased";
-			summary.innerHTML = summary.innerHTML + "complic_tbl" + " " + rowNum.toString() + "|"; //update summary
-			wallet.innerHTML = points.toString(); //update counter
-						
+			buy(tableName, rowNum, "choose", 0);	
 			//disable other complications
 			for(i=0; i<complications.length; i++) {
-				if(complications[i].className != "purchased") {
-					disable_row('complic_tbl',i);
+				if(!is_taken(tableName, i)) {
+					disable_row(tableName,i);
 				}
 			}
+			document.getElementById("btnRoll").disabled = true;
 			break;
 		default:
 			break;
@@ -177,21 +197,26 @@ function take_comp(rowNum) {
 }
 
 function revoke_comp(rowNum) {
-	refund('complic_tbl', rowNum);
+	var tableName = 'complic_tbl';
+	refund(tableName, rowNum);
 	
 	//ensure other complications are enabled
-	var complications = document.getElementById('complic_tbl').getElementsByTagName("tr");
+	var complications = document.getElementById(tableName).getElementsByTagName("tr");
 	var count=0;
 	for(i=0; i<complications.length; i++) {
-		enable_row('complic_tbl',i);
-		if(complications[i].className == "purchased") {
-			count = count + 1;
-		}
+		enable_row(tableName,i);
 	}
 	
-	//enable roll button if no comps taken
-	if(count == 0) {
+	//enable roll button if appropriate
+	count_taken(tableName);
+	if(count < 2) {
 		document.getElementById('btnRoll').disabled = false;
 	}
+	
+}
+
+function is_taken(tableName, rowNum) {
+	var row = document.getElementById(tableName).getElementsByTagName("tr")[rowNum];
+	return (row.className == "purchased" || row.className == "rolled");
 	
 }
