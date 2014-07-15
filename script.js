@@ -119,7 +119,7 @@ function gen_summary() {
         }
         for (var j=0; j<row.cells.length; j++) {
             if(row.cells[j].className == "name_col") {
-                outText = outText + row.cells[j].innerHTML + "\n";
+                outText = outText + row.cells[j].innerHTML + "<br>";
             }
         }
     }
