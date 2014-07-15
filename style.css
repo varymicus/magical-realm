@@ -294,3 +294,8 @@ hr {
 #complic_tbl .cost_col {
 	display: none;
 }
+
+#footer {
+    text-align: center;
+    font-size: 0.6em;
+}

@@ -1,9 +1,11 @@
 Interactive Magical Realm CYOA - README.txt
-Release v2.7 at 2014-07-14
+Release v2.8 at 2014-07-15
 Created by Varymicus for /tg/
-Based on the image CYOA created by Vexarian and updated by Bliss !I2GsKZRAQk
+Based on the image CYOA by Vexarian and Bliss !I2GsKZRAQk
 
 --VERSION HISTORY--
+-v2.8 released 2014-07-14
+Updated to match v4 (final) images.
 -v2.7 released 2014-07-14
 Added bauble countdown, fixed roll bug.
 -v2.6 released 2014-07-14
@@ -25,7 +27,7 @@ First published version of the site.
 
 --PREFACE--
 Heya, /tg/. While I loved the original CYOA, the tedium of scrolling back and forth across multiple large images of "words, words, words" inspired me to create this interactive version.
-There's still a lot of work to be done, and I will continue to update, improve, and extend the site as time permits - I look forward to your feedback and help in this regard. I'll try to keep an eye on CYOA threads, but I can be reached at cyoafeedback@gmail.com.
+The site has come a long way, but there's still plenty to improve and extend. I'll continue to work on this as time (and motivation) permits, so I look forward to your feedback and help in this regard. I'll also try to keep an eye on CYOA threads, but I can be reached at cyoafeedback@gmail.com.
 In the meantime, I hope you enjoy!
 
 --INSTRUCTIONS--
@@ -34,7 +36,7 @@ The interface should be pretty intuitive, but there are a couple of points I'd l
 - The cost of an option is indicated by the bold number to the immediate left of the "Purchase"/"Refund" button.
 - You can hide or show a section by clicking on the title.
 - The generated summary will appear at the bottom of your screen, so you will need to scroll down to see it.
-- You cannot revoke a choice you have rolled for.
+- You cannot revoke a complication you have rolled for.
 
 --REQUIREMENTS--
 A modern browser is recommended.
